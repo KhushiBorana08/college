@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newapp/list.dart';
+import 'package:newapp/splashscreen.dart';
 
 void main() {
   runApp(Test());
@@ -9,8 +11,9 @@ class Test extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "First App",
-      //home: FirstScreen(),
-
+      //home: First_Screen(),
+      //home: Test1(),
+      home: SplashScreen(),
     );
   }
 }
@@ -19,7 +22,7 @@ class Test extends StatelessWidget {
 
 
 
-class FirstScreen extends StatelessWidget {
+class First_Screen extends StatelessWidget {
   int count = 0;
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class FirstScreen extends StatelessWidget {
               height: 175,
               width: 175,
               decoration:BoxDecoration(
+               // image: DecorationImage(image: AssetImage('assets/images/download.jpg'),fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(10),
               color: Colors.red,
           ),
