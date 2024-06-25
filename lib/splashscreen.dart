@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:newapp/column.dart';
+import 'package:newapp/firstscreen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -12,9 +14,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+
   void initState() {
     Timer(Duration(seconds: 3), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>First_Screen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FirstScreen()));
     });
     super.initState();
   }
@@ -25,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children:[
           Container(
-            height: 470,
+            height: 400,
             child: Image.asset('assets/images/images-removebg-preview.png'),
           ),
           SizedBox(height:20),
@@ -60,12 +63,12 @@ class _SplashScreenState extends State<SplashScreen> {
              child: Text("Don't have an account?",style: TextStyle(fontSize: 13,),),
            ),
            Container(
-             child: Text("  Sign up,",style: TextStyle(
-               color: Colors.blue,
-               decoration: TextDecoration.underline,
-             ),
-             ),
-           ),
+             child: TextButton(onPressed: () {}, child:Text("Sign up"),
+                 style: TextButton.styleFrom(foregroundColor: Colors.blue,textStyle: TextStyle(decoration: TextDecoration.underline)),
+
+             ),)
+
+
          ],)
           ],
       ),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:newapp/list.dart';
+import 'package:newapp/splash.dart';
 import 'package:newapp/splashscreen.dart';
+import 'package:newapp/text3.dart';
 
 void main() {
   runApp(Test());
+
 }
 
 class Test extends StatelessWidget {
@@ -13,13 +16,13 @@ class Test extends StatelessWidget {
       title: "First App",
       //home: First_Screen(),
       //home: Test1(),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+   //   home: splash(),
+       home: Test4(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-
-
-
 
 
 class First_Screen extends StatelessWidget {
@@ -38,7 +41,7 @@ class First_Screen extends StatelessWidget {
           Row(
             children: [
               SizedBox(height: 20),
-        Container(
+              Container(
               height: 175,
               width: 175,
               decoration:BoxDecoration(
@@ -57,11 +60,11 @@ class First_Screen extends StatelessWidget {
 
               ),
             ],
-          ),SizedBox(height: 20),
-          Container(
-            height: 200,
-            width: 350,
-            decoration:BoxDecoration(
+           ),SizedBox(height: 20),
+             Container(
+             height: 200,
+             width: 350,
+             decoration:BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.green),
           ),SizedBox(height: 20),
