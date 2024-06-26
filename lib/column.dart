@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newapp/list.dart';
 import 'package:newapp/splash.dart';
 import 'package:newapp/splashscreen.dart';
+import 'package:newapp/test4.dart';
 import 'package:newapp/text3.dart';
 
 void main() {
@@ -17,8 +18,9 @@ class Test extends StatelessWidget {
       //home: First_Screen(),
       //home: Test1(),
       // home: SplashScreen(),
-   //   home: splash(),
-       home: Test4(),
+   home: splash(),
+      //home: Test4(),
+      //home: Test5(),
       debugShowCheckedModeBanner: false,
     );
   }

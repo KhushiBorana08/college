@@ -4,9 +4,10 @@ class UiHelper{
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
       child: TextField(
+        style: TextStyle(color: Colors.black),
         controller: controller,
         decoration: InputDecoration(
-          hintStyle:TextStyle(color: Colors.white),
+            hintStyle: TextStyle(decorationColor: Colors.black),
             hintText: text,
             suffixIcon: Icon(icondata),
             border: OutlineInputBorder(
@@ -21,10 +22,22 @@ class UiHelper{
   }
 
   static CustomButton(VoidCallback callback,String text){
-    return ElevatedButton(onPressed: (){
-      callback();
-    },style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),
-        child: Text(text));
+
+    return SizedBox(
+      height: 50,
+      width: 330,
+      child: ElevatedButton(onPressed: (){
+        callback();
+      },style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF7986CB)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(11),
+              side: BorderSide(color: Colors.purple)
+            ))
+      ),
+          child: Text(text)),
+    );
   }
 
   static CustomAlertBox(BuildContext context,String text){

@@ -14,32 +14,49 @@ class _Test4State extends State<Test4> {
   TextEditingController userController=TextEditingController();
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordController=TextEditingController();
+  TextEditingController confirmController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFB39DDB),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text("Sign up",style: TextStyle(fontSize: 40, color: Colors.white),),
+        backgroundColor: Color(0xFFB39DDB),
         centerTitle: true,
       ),
-      body: Column(
+      body: SingleChildScrollView(
+    child:
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          UiHelper.CustomTextField(userController,"User Name",Icons.supervised_user_circle),
+         Text("Sign up",style: TextStyle(fontSize: 40, color: Colors.black),),
+          SizedBox(height: 20),
+          Text("Create your account",style: TextStyle(fontSize: 20, color: Colors.black),),
+          SizedBox(height: 30),
+          UiHelper.CustomTextField(userController,"User Name",Icons.person),
           UiHelper.CustomTextField(emailController,"Enter Email",Icons.mail),
-          UiHelper.CustomTextField(passwordController,"Enter Password",Icons.password),
-          SizedBox(height: 20,),
-          Text("or sign up with", style: TextStyle(color: Colors.white ,fontSize: 20),),
+          UiHelper.CustomTextField(passwordController,"Enter Password",Icons.visibility_off),
+          UiHelper.CustomTextField(confirmController,"Confirm Password",Icons.visibility_off),
           SizedBox(height: 30,),
           UiHelper.CustomButton(() {
-            signup(userController.text.toString(),emailController.text.toString(), passwordController.text.toString());
-          },"Sign up")
-        ],),
+            signup(userController.text.toString(),emailController.text.toString(), passwordController.text.toString(),confirmController.text.toString() );
+          },"Sign up"),
+          SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Already have an account?",style: TextStyle(fontSize: 15, color: Colors.black),),
+              TextButton(onPressed: () {}, child:Text("Sign in"),
+                style: TextButton.styleFrom(foregroundColor: Colors.purple,textStyle: TextStyle(decoration: TextDecoration.underline)),
+              ),
+            ],
+          )
+          ],),
+
+      ),
     );
   }
-  signup(String user,String email,String password)async{
-    if(user=="" || email=="" || password==""){
+  signup(String user,String email,String password,String confirm)async{
+    if(user=="" || email=="" || password=="" || confirm==""){
       return UiHelper.CustomAlertBox(context, "Enter Required Field's");
     }
     else{
