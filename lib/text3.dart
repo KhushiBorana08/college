@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:newapp/test4.dart';
 import 'package:newapp/uihelper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,9 +19,9 @@ class _Test4State extends State<Test4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFB39DDB),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFB39DDB),
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -39,6 +40,7 @@ class _Test4State extends State<Test4> {
           SizedBox(height: 30,),
           UiHelper.CustomButton(() {
             signup(userController.text.toString(),emailController.text.toString(), passwordController.text.toString(),confirmController.text.toString() );
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>Test5()));
           },"Sign up"),
           SizedBox(height: 30),
           Row(
@@ -46,7 +48,7 @@ class _Test4State extends State<Test4> {
             children: [
               Text("Already have an account?",style: TextStyle(fontSize: 15, color: Colors.black),),
               TextButton(onPressed: () {}, child:Text("Sign in"),
-                style: TextButton.styleFrom(foregroundColor: Colors.purple,textStyle: TextStyle(decoration: TextDecoration.underline)),
+                style: TextButton.styleFrom(foregroundColor: Color(0xFF0D47A1),textStyle: TextStyle(decoration: TextDecoration.underline)),
               ),
             ],
           )
@@ -60,8 +62,6 @@ class _Test4State extends State<Test4> {
       return UiHelper.CustomAlertBox(context, "Enter Required Field's");
     }
     else{
-      SharedPreferences prefs=await SharedPreferences.getInstance();
-      prefs.setBool("isSign up", true);
       log("Data Added");
     }
   }

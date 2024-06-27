@@ -11,15 +11,15 @@ class Test5 extends StatefulWidget {
 }
 
 class _Test5State extends State<Test5> {
-  TextEditingController userController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFB39DDB),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFB39DDB),
+        backgroundColor:  Colors.white,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -31,15 +31,15 @@ class _Test5State extends State<Test5> {
               style: TextStyle(fontSize: 40, color: Colors.black),),
             SizedBox(height: 10),
             Text("Enter your credential to sign in",
-              style: TextStyle(fontSize: 10, color: Colors.black),),
+              style: TextStyle(fontSize: 15, color: Colors.black),),
             SizedBox(height: 30),
             UiHelper.CustomTextField(
-                userController, "User Name/Email", Icons.person),
+                emailController, "Enter Email", Icons.mail),
             UiHelper.CustomTextField(
                 passwordController, "Enter Password", Icons.visibility_off),
             SizedBox(height: 30,),
             UiHelper.CustomButton(() {
-              signin(userController.text.toString(),
+              signin(emailController.text.toString(),
                   passwordController.text.toString());
             }, "Sign in"),
             SizedBox(height: 30),
@@ -47,8 +47,10 @@ class _Test5State extends State<Test5> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(onPressed: () {}, child: Text("Forgot password?" ),
-                  style: TextButton.styleFrom(foregroundColor: Colors.purple,)),
+                TextButton(onPressed: () {
+
+                }, child: Text("Forgot password?" ),
+                  style: TextButton.styleFrom(foregroundColor:  Color(0xFF0D47A1),)),
               ],
             ),SizedBox(height: 70,),
             Row(
@@ -57,7 +59,7 @@ class _Test5State extends State<Test5> {
                 Text("Don't have an account?",
                   style: TextStyle(fontSize: 15, color: Colors.black),),
                 TextButton(onPressed: () {}, child: Text("Sign Up"),
-                  style: TextButton.styleFrom(foregroundColor: Colors.purple,
+                  style: TextButton.styleFrom(foregroundColor: Color(0xFF0D47A1),
                       textStyle: TextStyle(
                           decoration: TextDecoration.underline)),
                 ),
@@ -76,6 +78,7 @@ class _Test5State extends State<Test5> {
     else {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setBool("isSign up", true);
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>Test5()));
       log("Data Added");
     }
   }

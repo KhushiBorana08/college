@@ -29,14 +29,14 @@ class UiHelper{
       child: ElevatedButton(onPressed: (){
         callback();
       },style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF7986CB)),
+          backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF0D47A1)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(11),
-              side: BorderSide(color: Colors.purple)
+              side: BorderSide(color: Color(0xFF512DA8),)
             ))
       ),
-          child: Text(text)),
+          child: Text(text,style: TextStyle(fontSize: 19,color: Colors.white),)),
     );
   }
 
